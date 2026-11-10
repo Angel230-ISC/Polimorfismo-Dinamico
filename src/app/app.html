@@ -1,0 +1,1435 @@
+
+<!-- =========================================
+     MENÚ DE NAVEGACIÓN
+========================================= -->
+
+<header class="navbar">
+  <a class="brand" href="#inicio">
+    Python<span>.</span>Polimorfismo
+  </a>
+
+  <nav>
+    <a href="#fundamentos">Fundamentos</a>
+    <a href="#mecanismos">Mecanismos</a>
+    <a href="#buenas-practicas">Buenas prácticas</a>
+    <a href="#casos-reales">Casos reales</a>
+    <a href="#comparativa">Comparativa</a>
+    <a href="#actividad">Actividad</a>
+  </nav>
+</header>
+
+
+<main>
+
+  <!-- =========================================
+       PORTADA
+  ========================================= -->
+
+  <section class="hero" id="inicio">
+
+    <div class="hero-content">
+      <span class="eyebrow">
+        PROGRAMACIÓN ORIENTADA A OBJETOS
+      </span>
+
+      <h1>
+        Polimorfismo
+        <span>dinámico</span>
+        en Python
+      </h1>
+
+      <p>
+        Descubre cómo diferentes objetos pueden responder
+        de distintas maneras ante una misma operación.
+        Aprende sus mecanismos, aplicaciones y buenas prácticas
+        mediante ejemplos prácticos.
+      </p>
+
+      <a href="#fundamentos" class="btn-primary">
+        Comenzar aprendizaje
+      </a>
+    </div>
+
+    <div class="hero-code">
+      <div class="code-top">ejemplo.py</div>
+
+      <pre><code>class Animal:
+    def sonido(self):
+        print("Sonido general")
+
+class Perro(Animal):
+    def sonido(self):
+        print("Guau")
+
+class Gato(Animal):
+    def sonido(self):
+        print("Miau")
+
+animales = [Perro(), Gato()]
+
+for animal in animales:
+    animal.sonido()</code></pre>
+
+      <div class="code-caption">
+        Salida: Guau / Miau
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       TEMA 1: FUNDAMENTOS E INTRODUCCIÓN
+  ========================================= -->
+
+  <section class="section" id="fundamentos">
+
+    <div class="section-heading">
+      <span class="section-label">
+        01 / FUNDAMENTOS
+      </span>
+
+      <h2>Fundamentos e Introducción</h2>
+
+      <p>
+        El polimorfismo es uno de los principios fundamentales
+        de la programación orientada a objetos. Permite que
+        diferentes objetos respondan de distintas maneras
+        ante una misma operación.
+      </p>
+    </div>
+
+    <div class="intro-grid">
+
+      <article class="info-card">
+        <span class="card-number">01</span>
+
+        <h3>¿Qué significa?</h3>
+
+        <p>
+          La palabra polimorfismo significa muchas formas.
+          En programación, permite utilizar una misma operación
+          con diferentes objetos, obteniendo comportamientos distintos.
+        </p>
+      </article>
+
+      <article class="info-card">
+        <span class="card-number">02</span>
+
+        <h3>¿Para qué sirve?</h3>
+
+        <p>
+          Facilita la reutilización de código, reduce condiciones
+          innecesarias y permite desarrollar programas más flexibles,
+          organizados y fáciles de mantener.
+        </p>
+      </article>
+
+      <article class="info-card">
+        <span class="card-number">03</span>
+
+        <h3>Polimorfismo dinámico</h3>
+
+        <p>
+          En Python, el comportamiento del método se determina
+          durante la ejecución, dependiendo del objeto que
+          recibe la llamada.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="example-layout">
+
+      <div class="example-explanation">
+        <h3>Un ejemplo sencillo</h3>
+
+        <p>
+          Imagina que tenemos dos animales: un perro y un gato.
+          Ambos pueden realizar la acción de emitir un sonido,
+          pero cada uno produce un resultado diferente.
+        </p>
+
+        <p>
+          Esto demuestra cómo una misma operación puede tener
+          diferentes comportamientos según el objeto.
+        </p>
+      </div>
+
+      <div class="result-panel">
+
+        <div class="code-top">fundamentos.py</div>
+
+        <pre><code>class Perro:
+    def sonido(self):
+        print("Guau")
+
+class Gato:
+    def sonido(self):
+        print("Miau")
+
+animales = [Perro(), Gato()]
+
+for animal in animales:
+    animal.sonido()</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Guau
+Miau</code></pre>
+
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Recuerda:</strong>
+      el polimorfismo permite utilizar una misma operación
+      con objetos diferentes sin necesitar una función distinta
+      para cada uno.
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       TEMA 2: MECANISMOS DE POLIMORFISMO
+  ========================================= -->
+
+  <section class="section" id="mecanismos">
+
+    <div class="section-heading">
+      <span class="section-label">
+        02 / MECANISMOS
+      </span>
+
+      <h2>Mecanismos de Polimorfismo en Python</h2>
+
+      <p>
+        Python permite implementar el polimorfismo mediante
+        diferentes mecanismos que hacen posible que los objetos
+        compartan operaciones y tengan comportamientos particulares.
+      </p>
+    </div>
+
+
+    <!-- HERENCIA -->
+
+    <article class="mechanism-card">
+
+      <span class="card-number">01</span>
+
+      <h3>Herencia</h3>
+
+      <p>
+        La herencia permite crear una clase nueva a partir de
+        otra existente. La clase hija puede reutilizar los
+        atributos y métodos de la clase padre, además de
+        agregar funcionalidades propias.
+      </p>
+
+      <div class="result-panel">
+
+        <div class="code-top">herencia.py</div>
+
+        <pre><code>class Animal:
+    def comer(self):
+        print("El animal está comiendo")
+
+class Perro(Animal):
+    def ladrar(self):
+        print("Guau guau")
+
+perro = Perro()
+
+perro.comer()
+perro.ladrar()</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>El animal está comiendo
+Guau guau</code></pre>
+
+      </div>
+
+      <p class="success-text">
+        La clase Perro hereda el método comer() de Animal
+        y también tiene su propio método ladrar().
+      </p>
+
+    </article>
+
+
+    <!-- SOBRESCRITURA -->
+
+    <article class="mechanism-card">
+
+      <span class="card-number">02</span>
+
+      <h3>Sobrescritura de métodos (Method Overriding)</h3>
+
+      <p>
+        La sobrescritura ocurre cuando una clase hija redefine
+        un método heredado de su clase padre para proporcionar
+        una implementación diferente.
+      </p>
+
+      <div class="result-panel">
+
+        <div class="code-top">sobrescritura.py</div>
+
+        <pre><code>class Animal:
+    def sonido(self):
+        print("Sonido general")
+
+class Perro(Animal):
+    def sonido(self):
+        print("El perro ladra")
+
+class Gato(Animal):
+    def sonido(self):
+        print("El gato maúlla")
+
+perro = Perro()
+gato = Gato()
+
+perro.sonido()
+gato.sonido()</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>El perro ladra
+El gato maúlla</code></pre>
+
+      </div>
+
+      <p class="success-text">
+        Ambos objetos utilizan el método sonido(), pero cada
+        clase proporciona su propia implementación.
+      </p>
+
+    </article>
+
+
+    <!-- DESPACHO DINÁMICO -->
+
+    <article class="mechanism-card">
+
+      <span class="card-number">03</span>
+
+      <h3>Despacho dinámico</h3>
+
+      <p>
+        Es el mecanismo mediante el cual Python determina
+        qué implementación de un método debe ejecutar durante
+        la ejecución del programa, dependiendo del objeto real.
+      </p>
+
+      <div class="result-panel">
+
+        <div class="code-top">despacho.py</div>
+
+        <pre><code>class Auto:
+    def mover(self):
+        print("El auto avanza")
+
+class Avion:
+    def mover(self):
+        print("El avión vuela")
+
+def iniciar_transporte(vehiculo):
+    vehiculo.mover()
+
+iniciar_transporte(Auto())
+iniciar_transporte(Avion())</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>El auto avanza
+El avión vuela</code></pre>
+
+      </div>
+
+      <p class="success-text">
+        La función iniciar_transporte() no necesita conocer
+        el tipo concreto del objeto. Python ejecuta el método
+        correspondiente al objeto recibido.
+      </p>
+
+    </article>
+
+
+    <!-- DUCK TYPING -->
+
+    <article class="mechanism-card">
+
+      <span class="card-number">04</span>
+
+      <h3>Duck Typing</h3>
+
+      <p>
+        Duck Typing es un enfoque de Python en el que importa
+        más lo que un objeto puede hacer que la clase a la
+        que pertenece. Si implementa el método necesario,
+        puede utilizarse.
+      </p>
+
+      <div class="result-panel">
+
+        <div class="code-top">duck_typing.py</div>
+
+        <pre><code>class Impresora:
+    def imprimir(self):
+        print("Imprimiendo documento")
+
+class Pantalla:
+    def imprimir(self):
+        print("Mostrando documento")
+
+def ejecutar(dispositivo):
+    dispositivo.imprimir()
+
+ejecutar(Impresora())
+ejecutar(Pantalla())</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Imprimiendo documento
+Mostrando documento</code></pre>
+
+      </div>
+
+      <p class="success-text">
+        Las clases no necesitan heredar de una misma clase.
+        Ambas funcionan porque implementan el método imprimir().
+      </p>
+
+    </article>
+
+  </section>
+
+
+  <!-- =========================================
+       TEMA 3: BUENAS PRÁCTICAS Y CONTROL DE TIPOS
+  ========================================= -->
+
+  <section class="section" id="buenas-practicas">
+
+    <div class="section-heading">
+      <span class="section-label">
+        03 / BUENAS PRÁCTICAS
+      </span>
+
+      <h2>Buenas Prácticas y Control de Tipos</h2>
+
+      <p>
+        Para aprovechar el polimorfismo es importante escribir
+        código claro, validar los objetos cuando sea necesario
+        y controlar posibles errores durante la ejecución.
+      </p>
+    </div>
+
+    <div class="practice-grid">
+
+      <article class="info-card">
+        <h3>Nombres descriptivos</h3>
+
+        <p>
+          Utiliza nombres claros para las clases y métodos.
+          Por ejemplo: pagar(), imprimir() o enviar_notificacion().
+        </p>
+      </article>
+
+      <article class="info-card">
+        <h3>Evitar código repetido</h3>
+
+        <p>
+          Utiliza una misma función para trabajar con diferentes
+          objetos que implementan el comportamiento requerido.
+        </p>
+      </article>
+
+      <article class="info-card">
+        <h3>Validar cuando sea necesario</h3>
+
+        <p>
+          Puedes utilizar isinstance() para comprobar si un objeto
+          pertenece a una clase o a alguna de sus clases derivadas.
+        </p>
+      </article>
+
+    </div>
+
+
+    <!-- ISINSTANCE -->
+
+    <div class="example-layout">
+
+      <div class="example-explanation">
+
+        <h3>Control de tipos con isinstance()</h3>
+
+        <p>
+          La función isinstance() permite comprobar si un objeto
+          pertenece a una clase determinada.
+        </p>
+
+        <p>
+          Devuelve True si el objeto pertenece a la clase indicada
+          o hereda de ella. De lo contrario, devuelve False.
+        </p>
+
+      </div>
+
+      <div class="result-panel">
+
+        <div class="code-top">validacion.py</div>
+
+        <pre><code>class Animal:
+    pass
+
+class Perro(Animal):
+    pass
+
+mi_perro = Perro()
+
+print(isinstance(mi_perro, Perro))
+print(isinstance(mi_perro, Animal))</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>True
+True</code></pre>
+
+      </div>
+
+    </div>
+
+
+    <!-- TYPE -->
+
+    <div class="example-layout">
+
+      <div class="example-explanation">
+
+        <h3>Identificar el tipo con type()</h3>
+
+        <p>
+          La función type() permite conocer la clase concreta
+          a la que pertenece un objeto.
+        </p>
+
+        <p>
+          Es útil para inspeccionar objetos, aunque para validar
+          compatibilidad con clases base suele ser preferible
+          utilizar isinstance().
+        </p>
+
+      </div>
+
+      <div class="result-panel">
+
+        <div class="code-top">tipo.py</div>
+
+        <pre><code>class Perro:
+    pass
+
+mi_perro = Perro()
+
+print(type(mi_perro).__name__)</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Perro</code></pre>
+
+      </div>
+
+    </div>
+
+
+    <!-- MANEJO DE ERRORES -->
+
+    <div class="example-layout">
+
+      <div class="example-explanation">
+
+        <h3>Manejo de errores con try y except</h3>
+
+        <p>
+          Cuando trabajamos con objetos diferentes, puede ocurrir
+          que alguno no tenga el método que necesita una función.
+        </p>
+
+        <p>
+          try y except permiten controlar errores como AttributeError
+          para evitar que el programa termine inesperadamente.
+        </p>
+
+      </div>
+
+      <div class="result-panel">
+
+        <div class="code-top">errores.py</div>
+
+        <pre><code>class Documento:
+    def imprimir(self):
+        print("Documento impreso")
+
+def ejecutar(objeto):
+    try:
+        objeto.imprimir()
+    except AttributeError:
+        print("El objeto no puede imprimir")
+
+ejecutar(Documento())
+ejecutar("Texto")</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Documento impreso
+El objeto no puede imprimir</code></pre>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       TEMA 4: CASOS DE USO REALES
+  ========================================= -->
+
+  <section class="section" id="casos-reales">
+
+    <div class="section-heading">
+
+      <span class="section-label">
+        04 / APLICACIONES
+      </span>
+
+      <h2>Casos de Uso Reales</h2>
+
+      <p>
+        El polimorfismo se utiliza en sistemas de software para
+        trabajar con diferentes objetos mediante operaciones
+        comunes, sin tener que desarrollar una función distinta
+        para cada tipo de objeto.
+      </p>
+
+    </div>
+
+
+    <!-- SISTEMA DE PAGOS -->
+
+    <article class="mechanism-card">
+
+      <span class="card-number">01</span>
+
+      <h3>Sistema de pagos</h3>
+
+      <p>
+        Una aplicación de comercio electrónico puede procesar
+        diferentes métodos de pago mediante una operación común.
+        Cada método realiza el proceso correspondiente.
+      </p>
+
+      <div class="result-panel">
+
+        <div class="code-top">pagos.py</div>
+
+        <pre><code>class Tarjeta:
+    def pagar(self):
+        print("Pago con tarjeta")
+
+class Transferencia:
+    def pagar(self):
+        print("Pago por transferencia")
+
+def procesar_pago(metodo):
+    metodo.pagar()
+
+procesar_pago(Tarjeta())
+procesar_pago(Transferencia())</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Pago con tarjeta
+Pago por transferencia</code></pre>
+
+      </div>
+
+    </article>
+
+
+    <!-- SISTEMA DE NOTIFICACIONES -->
+
+    <article class="mechanism-card">
+
+      <span class="card-number">02</span>
+
+      <h3>Sistema de notificaciones</h3>
+
+      <p>
+        Una aplicación puede enviar notificaciones por diferentes
+        medios, como correo electrónico o mensajes SMS, utilizando
+        el mismo método enviar().
+      </p>
+
+      <div class="result-panel">
+
+        <div class="code-top">notificaciones.py</div>
+
+        <pre><code>class Correo:
+    def enviar(self):
+        print("Correo enviado")
+
+class SMS:
+    def enviar(self):
+        print("SMS enviado")
+
+def notificar(servicio):
+    servicio.enviar()
+
+notificar(Correo())
+notificar(SMS())</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Correo enviado
+SMS enviado</code></pre>
+
+      </div>
+
+    </article>
+
+
+    <!-- SISTEMA DE VEHÍCULOS -->
+
+    <article class="mechanism-card">
+
+      <span class="card-number">03</span>
+
+      <h3>Sistema de vehículos</h3>
+
+      <p>
+        En un sistema de transporte se pueden manejar diferentes
+        tipos de vehículos utilizando un mismo método para
+        iniciar su funcionamiento.
+      </p>
+
+      <div class="result-panel">
+
+        <div class="code-top">vehiculos.py</div>
+
+        <pre><code>class Automovil:
+    def arrancar(self):
+        print("Motor encendido")
+
+class Motocicleta:
+    def arrancar(self):
+        print("Motocicleta encendida")
+
+def iniciar(vehiculo):
+    vehiculo.arrancar()
+
+iniciar(Automovil())
+iniciar(Motocicleta())</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Motor encendido
+Motocicleta encendida</code></pre>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- =========================================
+       TEMA 5: COMPARATIVA Y ERRORES COMUNES
+  ========================================= -->
+
+  <section class="section" id="comparativa">
+
+    <div class="section-heading">
+
+      <span class="section-label">
+        05 / ANÁLISIS
+      </span>
+
+      <h2>Comparativa y Errores Comunes</h2>
+
+      <p>
+        Comprender las diferencias entre conceptos y reconocer
+        errores frecuentes ayuda a utilizar correctamente
+        el polimorfismo dinámico en Python.
+      </p>
+
+    </div>
+
+
+    <!-- COMPARATIVA -->
+
+    <div class="example-layout">
+
+      <div class="example-explanation">
+
+        <h3>Herencia vs. Polimorfismo</h3>
+
+        <p>
+          Aunque están relacionados, no significan lo mismo.
+        </p>
+
+        <p>
+          La herencia permite que una clase reutilice características
+          de otra. El polimorfismo permite que diferentes objetos
+          respondan de manera distinta ante una misma operación.
+        </p>
+
+      </div>
+
+      <div class="result-panel">
+
+        <div class="code-top">comparacion.py</div>
+
+        <pre><code>class Animal:
+    def sonido(self):
+        print("Sonido general")
+
+class Perro(Animal):
+    def sonido(self):
+        print("Guau")
+
+class Gato(Animal):
+    def sonido(self):
+        print("Miau")
+
+animales = [Perro(), Gato()]
+
+for animal in animales:
+    animal.sonido()</code></pre>
+
+        <div class="code-caption">
+          Resultado
+        </div>
+
+        <pre><code>Guau
+Miau</code></pre>
+
+      </div>
+
+    </div>
+
+
+    <!-- TABLA COMPARATIVA -->
+
+    <div class="info-card">
+
+      <h3>Diferencias principales</h3>
+
+      <div class="table-responsive">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Función</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Herencia</td>
+              <td>
+                Permite reutilizar atributos y métodos de otra clase.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Sobrescritura</td>
+              <td>
+                Permite redefinir un método heredado.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Despacho dinámico</td>
+              <td>
+                Selecciona qué implementación se ejecuta.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Duck Typing</td>
+              <td>
+                Permite utilizar objetos según las operaciones que implementan.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <!-- ERRORES FRECUENTES -->
+
+    <div class="section-heading">
+      <h3>Errores frecuentes</h3>
+
+      <p>
+        Estos son algunos errores que pueden aparecer al trabajar
+        con polimorfismo.
+      </p>
+    </div>
+
+    <div class="error-list">
+
+      <article class="error-item">
+
+        <h3>Error 1: Confundir herencia con polimorfismo</h3>
+
+        <p>
+          Tener una clase hija no significa que automáticamente
+          se esté demostrando polimorfismo. Es importante observar
+          cómo se comportan los objetos ante una misma operación.
+        </p>
+
+      </article>
+
+      <article class="error-item">
+
+        <h3>Error 2: Olvidar sobrescribir el método</h3>
+
+        <p>
+          Si una clase hija necesita un comportamiento diferente,
+          debe implementar su propia versión del método.
+        </p>
+
+      </article>
+
+      <article class="error-item">
+
+        <h3>Error 3: Utilizar métodos inexistentes</h3>
+
+        <p>
+          En Duck Typing, si un objeto no implementa el método
+          esperado, puede producirse un AttributeError.
+        </p>
+
+      </article>
+
+      <article class="error-item">
+
+        <h3>Error 4: Validar tipos innecesariamente</h3>
+
+        <p>
+          Comprobar constantemente el tipo de cada objeto puede
+          generar código rígido. Cuando sea posible, aprovecha
+          directamente el comportamiento polimórfico.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       TEMA 6: ACTIVIDAD FINAL
+  ========================================= -->
+
+  <section class="section activity" id="actividad">
+
+    <div class="section-heading">
+
+      <span class="section-label">
+        06 / EVALUACIÓN
+      </span>
+
+      <h2>Actividad final</h2>
+
+      <p>
+        Comprueba lo que aprendiste sobre polimorfismo dinámico.
+        Responde las dos preguntas y completa los dos códigos
+        utilizando las palabras disponibles.
+      </p>
+
+    </div>
+
+
+    <!-- PREGUNTA 1 -->
+
+    <article class="quiz-card">
+
+      <div class="quiz-header">
+        <span>Pregunta 1</span>
+        <span>25 puntos</span>
+      </div>
+
+      <h3 class="question-title">
+        ¿Qué sucede cuando una clase hija sobrescribe un método
+        de su clase padre?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="pregunta1"
+            value="a"
+            [checked]="respuestas.pregunta1 === 'a'"
+            (change)="respuestas.pregunta1 = 'a'; evaluado = false">
+
+          El método de la clase padre desaparece.
+
+        </label>
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="pregunta1"
+            value="b"
+            [checked]="respuestas.pregunta1 === 'b'"
+            (change)="respuestas.pregunta1 = 'b'; evaluado = false">
+
+          La clase hija proporciona su propia implementación.
+
+        </label>
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="pregunta1"
+            value="c"
+            [checked]="respuestas.pregunta1 === 'c'"
+            (change)="respuestas.pregunta1 = 'c'; evaluado = false">
+
+          Python elimina la herencia.
+
+        </label>
+
+      </div>
+
+      @if (evaluado) {
+
+        <p
+          class="feedback"
+          [class.correct]="respuestas.pregunta1 === 'b'">
+
+          {{ respuestas.pregunta1 === 'b'
+            ? '¡Correcto! La clase hija redefine el método heredado.'
+            : 'Incorrecto. Revisa el tema de sobrescritura de métodos.' }}
+
+        </p>
+
+      }
+
+    </article>
+
+
+    <!-- PREGUNTA 2 -->
+
+    <article class="quiz-card">
+
+      <div class="quiz-header">
+        <span>Pregunta 2</span>
+        <span>25 puntos</span>
+      </div>
+
+      <h3 class="question-title">
+        ¿Qué mecanismo permite que Python ejecute diferentes
+        versiones de un método según el objeto recibido?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="pregunta2"
+            value="a"
+            [checked]="respuestas.pregunta2 === 'a'"
+            (change)="respuestas.pregunta2 = 'a'; evaluado = false">
+
+          Despacho dinámico.
+
+        </label>
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="pregunta2"
+            value="b"
+            [checked]="respuestas.pregunta2 === 'b'"
+            (change)="respuestas.pregunta2 = 'b'; evaluado = false">
+
+          Declaración de variables.
+
+        </label>
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="pregunta2"
+            value="c"
+            [checked]="respuestas.pregunta2 === 'c'"
+            (change)="respuestas.pregunta2 = 'c'; evaluado = false">
+
+          Comentarios.
+
+        </label>
+
+      </div>
+
+      @if (evaluado) {
+
+        <p
+          class="feedback"
+          [class.correct]="respuestas.pregunta2 === 'a'">
+
+          {{ respuestas.pregunta2 === 'a'
+            ? '¡Correcto! Python selecciona el método durante la ejecución.'
+            : 'Incorrecto. Revisa el tema de despacho dinámico.' }}
+
+        </p>
+
+      }
+
+    </article>
+
+
+    <!-- EJERCICIO 3 -->
+
+    <article class="quiz-card">
+
+      <div class="quiz-header">
+        <span>Ejercicio 3</span>
+        <span>25 puntos</span>
+      </div>
+
+      <h3 class="question-title">
+        Completa el siguiente código de herencia y sobrescritura
+        utilizando las palabras disponibles.
+      </h3>
+
+      <p class="code-caption">
+        Palabras disponibles:
+      </p>
+
+      <div class="word-bank">
+        <span>class</span>
+        <span>def</span>
+        <span>print</span>
+        <span>return</span>
+      </div>
+
+      <div class="code-completion">
+
+        <pre><code><span class="blank">1</span> Animal:
+    <span class="blank">2</span> hacer_sonido(self):
+        <span class="blank">3</span>("Sonido de animal")
+
+class Perro(Animal):
+    <span class="blank">4</span> hacer_sonido(self):
+        print("Guau")</code></pre>
+
+        <div class="answer-fields">
+
+          <label>
+            Espacio 1
+
+            <select
+              [value]="respuestas.codigo1[0]"
+              (change)="respuestas.codigo1[0] = $any($event.target).value; evaluado = false">
+
+              <option value="">Selecciona una palabra</option>
+              <option value="class">class</option>
+              <option value="def">def</option>
+              <option value="print">print</option>
+              <option value="return">return</option>
+
+            </select>
+          </label>
+
+          <label>
+            Espacio 2
+
+            <select
+              [value]="respuestas.codigo1[1]"
+              (change)="respuestas.codigo1[1] = $any($event.target).value; evaluado = false">
+
+              <option value="">Selecciona una palabra</option>
+              <option value="class">class</option>
+              <option value="def">def</option>
+              <option value="print">print</option>
+              <option value="return">return</option>
+
+            </select>
+          </label>
+
+          <label>
+            Espacio 3
+
+            <select
+              [value]="respuestas.codigo1[2]"
+              (change)="respuestas.codigo1[2] = $any($event.target).value; evaluado = false">
+
+              <option value="">Selecciona una palabra</option>
+              <option value="class">class</option>
+              <option value="def">def</option>
+              <option value="print">print</option>
+              <option value="return">return</option>
+
+            </select>
+          </label>
+
+          <label>
+            Espacio 4
+
+            <select
+              [value]="respuestas.codigo1[3]"
+              (change)="respuestas.codigo1[3] = $any($event.target).value; evaluado = false">
+
+              <option value="">Selecciona una palabra</option>
+              <option value="class">class</option>
+              <option value="def">def</option>
+              <option value="print">print</option>
+              <option value="return">return</option>
+
+            </select>
+          </label>
+
+        </div>
+
+      </div>
+
+      @if (evaluado) {
+
+        <p class="feedback">
+
+          Respuestas:
+
+          {{ respuestas.codigo1[0] === 'class' ? '1 ✓' : '1 ✗' }},
+          {{ respuestas.codigo1[1] === 'def' ? '2 ✓' : '2 ✗' }},
+          {{ respuestas.codigo1[2] === 'print' ? '3 ✓' : '3 ✗' }},
+          {{ respuestas.codigo1[3] === 'def' ? '4 ✓' : '4 ✗' }}
+
+        </p>
+
+      }
+
+    </article>
+
+
+    <!-- EJERCICIO 4 -->
+
+    <article class="quiz-card">
+
+      <div class="quiz-header">
+        <span>Ejercicio 4</span>
+        <span>25 puntos</span>
+      </div>
+
+      <h3 class="question-title">
+        Completa el ciclo que permite ejecutar el método
+        de cada objeto de la lista.
+      </h3>
+
+      <p class="code-caption">
+        Palabras disponibles:
+      </p>
+
+      <div class="word-bank">
+        <span>for</span>
+        <span>animal</span>
+        <span>hacer_sonido</span>
+        <span>while</span>
+      </div>
+
+      <div class="code-completion">
+
+        <pre><code>animales = [Perro(), Gato()]
+
+<span class="blank">1</span> <span class="blank">2</span> in animales:
+    animal.<span class="blank">3</span>()</code></pre>
+
+        <div class="answer-fields">
+
+          <label>
+            Espacio 1
+
+            <select
+              [value]="respuestas.codigo2[0]"
+              (change)="respuestas.codigo2[0] = $any($event.target).value; evaluado = false">
+
+              <option value="">Selecciona una palabra</option>
+              <option value="for">for</option>
+              <option value="animal">animal</option>
+              <option value="hacer_sonido">hacer_sonido</option>
+              <option value="while">while</option>
+
+            </select>
+          </label>
+
+          <label>
+            Espacio 2
+
+            <select
+              [value]="respuestas.codigo2[1]"
+              (change)="respuestas.codigo2[1] = $any($event.target).value; evaluado = false">
+
+              <option value="">Selecciona una palabra</option>
+              <option value="for">for</option>
+              <option value="animal">animal</option>
+              <option value="hacer_sonido">hacer_sonido</option>
+              <option value="while">while</option>
+
+            </select>
+          </label>
+
+          <label>
+            Espacio 3
+
+            <select
+              [value]="respuestas.codigo2[2]"
+              (change)="respuestas.codigo2[2] = $any($event.target).value; evaluado = false">
+
+              <option value="">Selecciona una palabra</option>
+              <option value="for">for</option>
+              <option value="animal">animal</option>
+              <option value="hacer_sonido">hacer_sonido</option>
+              <option value="while">while</option>
+
+            </select>
+          </label>
+
+        </div>
+
+      </div>
+
+      @if (evaluado) {
+
+        <p class="feedback">
+
+          Respuestas:
+
+          {{ respuestas.codigo2[0] === 'for' ? '1 ✓' : '1 ✗' }},
+          {{ respuestas.codigo2[1] === 'animal' ? '2 ✓' : '2 ✗' }},
+          {{ respuestas.codigo2[2] === 'hacer_sonido' ? '3 ✓' : '3 ✗' }}
+
+        </p>
+
+      }
+
+    </article>
+
+
+    <!-- BOTONES DE EVALUACIÓN -->
+
+    <div class="quiz-actions">
+
+      <button
+        class="btn-primary"
+        (click)="evaluar()">
+
+        Calificar actividad
+
+      </button>
+
+      <button
+        class="btn-secondary"
+        (click)="reiniciar()">
+
+        Reiniciar
+
+      </button>
+
+    </div>
+
+
+    <!-- RESULTADO -->
+
+    @if (evaluado) {
+
+      <div class="grade-result">
+
+        <h3>Resultado de tu evaluación</h3>
+
+        <strong>
+          {{ calificacion }} / 100
+        </strong>
+
+        <p>
+
+          @if (calificacion! >= 70) {
+
+            ¡Excelente trabajo! Has comprendido los conceptos
+            principales del polimorfismo dinámico.
+
+          } @else {
+
+            Sigue practicando. Repasa los subtemas e intenta
+            nuevamente para mejorar tu resultado.
+
+          }
+
+        </p>
+
+      </div>
+
+    }
+
+  </section>
+
+</main>
+
+
+<!-- =========================================
+     PIE DE PÁGINA
+========================================= -->
+
+<footer class="footer">
+
+  <p>
+    Polimorfismo dinámico en Python
+  </p>
+
+  <span>
+    Material educativo · Programación orientada a objetos
+  </span>
+
+</footer>
